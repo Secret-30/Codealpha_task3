@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samruddhi Shimpi | Portfolio</title>
+    <style>
+        :root {
+            --dark-blue: #020c1b;
+            --navy: #0a192f;
+            --light-blue: #00d2ff;
+            --white: #e6f1ff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top right, #112240, var(--dark-blue));
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(2, 12, 27, 0.9);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--light-blue); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--white); transition: 0.3s; cursor: pointer; }
+        nav a:hover, nav a.active { color: var(--light-blue); }
+
+        section {
+            padding: 120px 10% 60px; min-height: 100vh;
+            display: none; animation: fadeIn 0.8s ease forwards;
+        }
+        section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Skills Styling (Small Glowing Boxes) */
+        .skills-container { margin-top: 40px; text-align: center; }
+        .skills-category { margin-bottom: 30px; }
+        .skills-category h4 { margin-bottom: 15px; color: var(--white); opacity: 0.8; }
+        .skills-wrapper {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+            max-width: 850px; margin: 0 auto;
+        }
+        .skill-chip {
+            background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; padding: 8px 18px; font-size: 0.9rem;
+            transition: all 0.3s ease; cursor: default;
+        }
+        .skill-chip:hover {
+            border-color: var(--light-blue); color: var(--light-blue);
+            box-shadow: 0 0 15px var(--light-blue); transform: translateY(-3px);
+        }
+
+        .card {
+            background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; padding: 25px; margin-bottom: 20px; transition: 0.3s;
+        }
+        .card:hover { border-color: var(--light-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.1); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+        .project-btn {
+            display: inline-block; margin-top: 15px; padding: 8px 15px;
+            border: 1px solid var(--light-blue); color: var(--light-blue);
+            text-decoration: none; border-radius: 5px; transition: 0.3s;
+            font-size: 0.85rem; font-weight: bold;
+        }
+        .project-btn:hover { background: var(--light-blue); color: var(--dark-blue); }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-form-box input, .contact-form-box textarea {
+            width: 100%; background: var(--navy); border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px; color: white; border-radius: 6px; margin-bottom: 15px;
+        }
+        .send-btn {
+            width: 100%; padding: 12px; background: var(--light-blue);
+            color: var(--dark-blue); border: none; font-weight: bold;
+            border-radius: 6px; cursor: pointer; transition: 0.3s;
+        }
+
+        .click-spark {
+            position: absolute; width: 10px; height: 10px; background: var(--light-blue);
+            border-radius: 50%; pointer-events: none; animation: blowup 0.6s forwards;
+            z-index: 9999; transform: translate(-50%, -50%);
+        }
+        @keyframes blowup { to { width: 80px; height: 80px; opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Samruddhi.Dev</div>
+    <nav>
+        <ul>
+            <li><a onclick="showSection('home')" id="link-home" class="active">Home</a></li>
+            <li><a onclick="showSection('about')" id="link-about">About</a></li>
+            <li><a onclick="showSection('education')" id="link-education">Education</a></li>
+            <li><a onclick="showSection('projects')" id="link-projects">Projects</a></li>
+            <li><a onclick="showSection('contact')" id="link-contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="active">
+    <div style="text-align: center;">
+        <h1 style="font-size: 3.5rem; color: var(--light-blue);">Samruddhi Shimpi</h1>
+        <h3>3rd Year BSc IT Student | Full-Stack Developer</h3>
+        
+        <div class="skills-container">
+            <h2 style="margin-bottom: 20px;">Skills</h2>
+            <div class="skills-category">
+                <h4>Technical Skills</h4>
+                <div class="skills-wrapper">
+                    <div class="skill-chip">Java</div><div class="skill-chip">JavaScript</div>
+                    <div class="skill-chip">HTML/CSS</div><div class="skill-chip">SQL</div>
+                    <div class="skill-chip">Python</div><div class="skill-chip">Software Testing</div>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h4>Soft Skills</h4>
+                <div class="skills-wrapper">
+                    <div class="skill-chip">Adaptability</div>
+                    <div class="skill-chip">Quick Learner</div>
+                    <div class="skill-chip">Multitasking</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+         <p>I am a creative designer who believes that a website should be as beautiful as it is functional. I specialize in making responsive websites that work flawlessly across all devices.</p>
+        <br>
+        <p>Known for being a <strong>fast performer and a quick learner</strong>, I constantly adapt to new frameworks and tools to deliver high-quality code. I enjoy turning complex problems into simple, elegant solutions.</p>
+    <br><p>My goal is to bridge the gap between creative visual design and technical implementation using clean HTML, CSS, and JavaScript.</p>
+
+
+     <br> <p style="margin-top:15px;">I am currently seeking remote IT internships and working on the "SAM" repository.</p>
+    </div>
+</section>
+
+<!-- EDUCATION SECTION -->
+<section id="education">
+    <h2>Education</h2>
+    <div class="timeline-item card">
+        <h3>Bachelor of Science in Information Technology</h3>
+        <p>2024-2027</p>
+        <p>Third-year student focusing on Full-Stack development and core Java technical concepts.</p>
+    </div>
+    <div class="timeline-item card">
+        <h3>Higher Secondary School</h3>
+        <p>2022-2024</p>
+        <p>Focused on Science and Mathematics foundation.</p>
+    </div>
+    <div class="timeline-item card">
+        <h3>Secondary School</h3>
+        <p>2020-2022</p>
+        <p>Completed with a strong academic background.</p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Job Portal</h3>
+            <p>A website for searching and applying for jobs.</p>
+            <a href="https://secret-30.github.io/Job-Portal/" target="_blank" class="project-btn">View Live</a>
+        </div>
+        <div class="card">
+            <h3>Admin Dashboard</h3>
+            <p>Responsive dashboard with analytics cards.</p>
+            <a href="https://secret-30.github.io/Admin-Analytics-Dashboard/" target="_blank" class="project-btn">View Live</a>
+        </div>
+        <div class="card">
+            <h3>Landing Page</h3>
+            <p>Modern UI landing page project.</p>
+            <a href="https://secret-30.github.io/Landing-page_Sqrock/" target="_blank" class="project-btn">View Live</a>
+        </div>
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>My personal professional showcase.</p>
+            <a href="https://secret-30.github.io/Sqrock_Portfolio/" target="_blank" class="project-btn">View Live</a>
+        </div>
+        <div class="card">
+            <h3>Laundry Manager</h3>
+            <p>Order tracking management system.</p>
+            <a href="https://secret-30.github.io/Laundry-Order-Manager/" target="_blank" class="project-btn">View Live</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-grid">
+        <div class="card">
+            <h3>Connect With Me</h3>
+            <p>A 3rd year Bsc IT student looking for an internship.</p>
+            <p style="margin-top:10px;"><strong>Email:</strong> samruddhishimpi3008@gmail.com</p>
+            <p><strong>LinkedIn:</strong> linkedin.com/in/samruddhi-shimpi</p>
+        </div>
+        <div class="card">
+            <div id="form-container">
+                <input type="text" id="name" placeholder="Name">
+                <input type="email" id="email" placeholder="Email">
+                <textarea id="msg" rows="4" placeholder="Message"></textarea>
+                <button type="button" class="send-btn" onclick="submitMessage()">Send Message</button>
+            </div>
+            <div id="thank-you" style="display: none; text-align: center; padding: 20px;">
+                <h3 style="color: var(--light-blue);">Thank You!</h3>
+                <p>I have received your message and will contact you soon.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.getElementById('link-' + id).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    function submitMessage() {
+        const n = document.getElementById('name').value;
+        const e = document.getElementById('email').value;
+        const m = document.getElementById('msg').value;
+        if(n && e && m) {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('thank-you').style.display = 'block';
+        } else { alert("Please fill all fields!"); }
+    }
+
+    document.addEventListener('click', (e) => {
+        const s = document.createElement('div');
+        s.className = 'click-spark';
+        s.style.left = e.pageX + 'px';
+        s.style.top = e.pageY + 'px';
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 600);
+    });
+</script>
+</body>
+</html>
